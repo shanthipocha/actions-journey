@@ -6,7 +6,6 @@ jobs:
     steps:
       - name: Describe this run
         run: |
-          echo "Run context details:"
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref_name }}"
           echo "Commit: ${{ github.sha }}"
