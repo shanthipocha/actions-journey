@@ -1,0 +1,15 @@
+name: Run Context
+
+on: push
+
+jobs:
+  describe-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print run context
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Commit ID: ${{ github.sha }}"
+          echo "Event: ${{ github.event_name }}"
+          echo "Runner OS: ${{ runner.os }}"
