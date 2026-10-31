@@ -1,21 +1,23 @@
 name: env-demo
+
 on: push
 
 env:
   APP_NAME: journey
 
 jobs:
-  env-demo:
+  env-check:
     runs-on: ubuntu-latest
     env:
       LOG_LEVEL: info
+
     steps:
       - name: Show workflow and job environment
         run: |
           echo "APP_NAME=$APP_NAME"
           echo "LOG_LEVEL=$LOG_LEVEL"
 
-      - name: Override log level for this step
+      - name: Override log level
         env:
           LOG_LEVEL: debug
         run: |
