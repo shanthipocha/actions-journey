@@ -9,5 +9,5 @@ jobs:
         run: echo "Tests passed"
 
       - name: Deploy
-        if: github.ref == 'refs/heads/main'
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "Deploying application"
