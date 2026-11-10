@@ -1,13 +1,11 @@
 name: gated-deploy
 on: push
-
 jobs:
-  deploy-check:
+  ship:
     runs-on: ubuntu-latest
     steps:
       - name: Run tests
-        run: echo "Tests passed"
-
+        run: echo "tests passed"
       - name: Deploy
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: echo "Deploying application"
+        if: github.ref == 'refs/heads/main'
+        run: echo "deploying to production"
