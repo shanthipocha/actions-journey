@@ -1,0 +1,15 @@
+name: announce
+
+on: push
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Announce app
+        uses: ./.github/actions/announce
+        with:
+          app-name: pixelpost
