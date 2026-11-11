@@ -6,12 +6,15 @@ runs:
   steps:
     - name: Show branch
       shell: bash
-      run: echo "Branch: $GITHUB_REF_NAME"
+      run: |
+        echo "Branch: $GITHUB_REF_NAME"
 
     - name: Show commit
       shell: bash
-      run: echo "Commit: $GITHUB_SHA"
+      run: |
+        echo "Commit: $GITHUB_SHA"
 
     - name: Show repository
       shell: bash
-      run: echo "Repository: $GITHUB_REPOSITORY"
+      run: |
+        echo "Repository: $GITHUB_REPOSITORY"
