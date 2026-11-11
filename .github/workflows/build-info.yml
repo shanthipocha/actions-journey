@@ -1,14 +1,8 @@
 name: build-info
-
-on:
-  push:
-
+on: push
 jobs:
-  build-info:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Run local build-info action
-        uses: ./.github/actions/build-info
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/build-info

@@ -1,20 +1,11 @@
-name: Build Info
-description: Print build and repository information
-
+name: build-info
+description: Print branch, commit, and Python version
 runs:
   using: composite
   steps:
-    - name: Show branch
+    - run: echo "Branch $GITHUB_REF_NAME"
       shell: bash
-      run: |
-        echo "Branch: $GITHUB_REF_NAME"
-
-    - name: Show commit
+    - run: echo "Commit $GITHUB_SHA"
       shell: bash
-      run: |
-        echo "Commit: $GITHUB_SHA"
-
-    - name: Show repository
+    - run: python3 --version
       shell: bash
-      run: |
-        echo "Repository: $GITHUB_REPOSITORY"
