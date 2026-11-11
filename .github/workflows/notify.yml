@@ -1,0 +1,21 @@
+name: notify
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: Environment name
+        required: true
+        type: string
+    secrets:
+      NOTIFY_TOKEN:
+        required: true
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification
+        env:
+          NOTIFY_TOKEN: ${{ secrets.NOTIFY_TOKEN }}
+        run: echo "Notification requested for ${{ inputs.environment }}"

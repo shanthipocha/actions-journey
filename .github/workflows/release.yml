@@ -1,22 +1,12 @@
 name: release
-on: push
+
+on:
+  push:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run lint check
-        run: echo "Lint check passed"
-
-  unit-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run unit tests
-        run: echo "Unit tests passed"
-
-  package:
-    runs-on: ubuntu-latest
-    needs: [lint, unit-tests]
-    steps:
-      - name: Package application
-        run: echo "Package job completed"
+  notify:
+    uses: ./.github/workflows/notify.yml
+    with:
+      environment: production
+    secrets:
+      NOTIFY_TOKEN: ${{ secrets.NOTIFY_TOKEN }}
