@@ -11,4 +11,5 @@ runs:
   steps:
     - name: Announce application
       shell: bash
-      run: echo "Building app: ${{ inputs.app-name }}"
+      run: |
+        echo "Building app: ${{ inputs.app-name }}"
