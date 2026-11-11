@@ -1,0 +1,20 @@
+name: tidy
+
+on: push
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tidy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Count repository files
+        run: |
+          count=$(find . -type f | wc -l)
+          echo "Repository contains $count files"
